@@ -9,7 +9,7 @@
     "start": "node dist/server.js",
     "test": "vitest run && npm run test:clean",
     "test:watch": "vitest",
-    "test:ui": "vitest --ui && npm run test:clean",
+    "test:ui": "vitest --ui --coverage && npm run test:clean",
     "test:coverage": "vitest run --coverage",
     "knex:migrate": "knex migrate:latest",
     "knex:migrate:rollback": "knex migrate:rollback",
