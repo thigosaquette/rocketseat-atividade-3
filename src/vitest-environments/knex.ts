@@ -8,7 +8,8 @@ import * as path from 'path';
 
 if (process.env.NODE_ENV === 'test' && !process.env.TEST_DB_PATH) {
   const workerId = process.env.VITEST_WORKER_ID || randomUUID().replace(/-/g, '');
-  process.env.TEST_DB_PATH = path.resolve(process.cwd(), `db.test.${workerId}.sqlite`);
+  const dbDir = process.env.RUNNER_TEMP || process.cwd();
+  process.env.TEST_DB_PATH = path.resolve(dbDir, `db.test.${workerId}.sqlite`);
 }
 
 function getDatabasePath() {
@@ -25,9 +26,15 @@ export default <Environment>{
   transformMode: 'ssr',
   async setup() {
     const testDbPath = getDatabasePath();
+    const dbDir = path.dirname(testDbPath);
+    
+    if (!fs.existsSync(dbDir)) {
+      fs.mkdirSync(dbDir, { recursive: true, mode: 0o755 });
+    }
     
     if (fs.existsSync(testDbPath)) {
       try {
+        fs.chmodSync(testDbPath, 0o666);
         fs.unlinkSync(testDbPath);
       } catch {}
     }
@@ -43,6 +50,10 @@ export default <Environment>{
       
       await upOrgs(dbInstance);
       await upPets(dbInstance);
+      
+      if (fs.existsSync(testDbPath)) {
+        fs.chmodSync(testDbPath, 0o666);
+      }
     } catch (error: any) {
       if (dbInstance) await dbInstance.destroy();
       throw error;

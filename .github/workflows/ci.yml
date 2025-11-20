@@ -24,6 +24,8 @@ jobs:
 
       - name: Run unit tests
         run: npm test -- test/unit
+        env:
+          NODE_ENV: test
 
   e2e-tests:
     runs-on: ubuntu-latest
@@ -48,6 +50,8 @@ jobs:
 
       - name: Run e2e tests
         run: npm test -- test/e2e
+        env:
+          NODE_ENV: test
 
   coverage:
     runs-on: ubuntu-latest
@@ -67,4 +71,6 @@ jobs:
 
       - name: Generate coverage report
         run: npm run test:coverage
+        env:
+          NODE_ENV: test
 
