@@ -1,0 +1,43 @@
+{
+  "name": "find-a-friend-api",
+  "version": "1.0.0",
+  "description": "API REST para sistema de adoção de animais - Todas as versões dos pacotes são fixas (sem ^ ou ~)",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "knex:migrate": "knex migrate:latest",
+    "knex:migrate:rollback": "knex migrate:rollback",
+    "knex:seed": "knex seed:run",
+    "test:clean": "node scripts/clean-test-db.js",
+    "install:exact": "npm install --save-exact"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/jwt": "10.0.0",
+    "@fastify/cors": "11.1.0",
+    "bcryptjs": "2.4.3",
+    "dotenv": "16.4.5",
+    "fastify": "5.6.2",
+    "knex": "3.1.0",
+    "sqlite3": "5.1.7",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "2.4.6",
+    "@types/node": "22.9.0",
+    "@vitest/coverage-v8": "2.1.8",
+    "@vitest/ui": "2.1.8",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2",
+    "vitest": "2.1.8"
+  }
+}
+
