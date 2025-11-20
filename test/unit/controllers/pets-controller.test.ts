@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { PetsController } from '../pets-controller';
+import { PetsController } from '@/http/controllers/pets-controller';
 import { CreatePetUseCase } from '@/use-cases/create-pet-use-case';
 import { ListPetsByCityUseCase } from '@/use-cases/list-pets-by-city-use-case';
 import { GetPetDetailsUseCase } from '@/use-cases/get-pet-details-use-case';

@@ -8,10 +8,8 @@ export default defineConfig({
     reporters: 'verbose',
     testTimeout: 30000,
     hookTimeout: 30000,
-    // Aplica o ambiente customizado apenas aos testes
     environmentMatchGlobs: [
       ['./test/**', './src/vitest-environments/knex.ts'],
-      ['./src/**/*.test.ts', './src/vitest-environments/knex.ts'],
     ],
     setupFiles: ['./test/setup.ts'],
     coverage: {

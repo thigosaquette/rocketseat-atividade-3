@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { RegisterOrgUseCase } from '../register-org-use-case';
+import { RegisterOrgUseCase } from '@/use-cases/register-org-use-case';
 import { OrgsRepository } from '@/repositories/orgs-repository';
 import { db } from '@/database/connection';
 

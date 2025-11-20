@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { ListPetsByCityUseCase } from '../list-pets-by-city-use-case';
-import { CreatePetUseCase } from '../create-pet-use-case';
-import { RegisterOrgUseCase } from '../register-org-use-case';
+import { ListPetsByCityUseCase } from '@/use-cases/list-pets-by-city-use-case';
+import { CreatePetUseCase } from '@/use-cases/create-pet-use-case';
+import { RegisterOrgUseCase } from '@/use-cases/register-org-use-case';
 import { PetsRepository } from '@/repositories/pets-repository';
 import { OrgsRepository } from '@/repositories/orgs-repository';
 import { db } from '@/database/connection';

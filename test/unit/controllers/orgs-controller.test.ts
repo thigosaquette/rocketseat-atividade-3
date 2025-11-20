@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { OrgsController } from '../orgs-controller';
+import { OrgsController } from '@/http/controllers/orgs-controller';
 import { RegisterOrgUseCase } from '@/use-cases/register-org-use-case';
 import { AuthenticateOrgUseCase } from '@/use-cases/authenticate-org-use-case';
 import { OrgsRepository } from '@/repositories/orgs-repository';
